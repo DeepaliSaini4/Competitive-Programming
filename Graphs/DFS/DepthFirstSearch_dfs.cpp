@@ -13,7 +13,7 @@ void dfs(int node){
     
 }
 signed main(){
-    ios_base::sync_with_stdio(0);
+    ios_base::sync_with_stdio(0);  
     cin.tie(0);cout.tie(0);
     cin>>n>>m;
     vis.assign(n+1,0);
