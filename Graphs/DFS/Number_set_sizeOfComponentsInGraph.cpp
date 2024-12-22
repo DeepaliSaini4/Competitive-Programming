@@ -1,27 +1,33 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+#define int long long
 int n,m;
 vector<vector<int>>g;
 vector<int> vis;
+
 void dfs(int node, int comp_num){
-    vis[node]=comp_num;
+    vis[node]=comp_num; //vis stores component number
     for(auto v: g[node]){
         if(!vis[v]){
             dfs(v,comp_num);
         }
     }
 }
+
 signed main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0);cout.tie(0);
+
     cin>>n>>m;
-    g.resize(n+1); 
+    g.resize(n+1); //1 - based
     for(int i;i<m;i++){
         int a,b;
         cin>>a>>b;
         g[a].push_back(b);
         g[b].push_back(a);
     }
+
     vis.assign(n+1,0);
     int num_comp = 0;
     for(int i=1;i<=n;i++){
@@ -30,13 +36,16 @@ signed main(){
             dfs(i,num_comp);
         }
     }
+
     cout<<num_comp<<endl;
+
     vector<vector<int>> components;
     components.resize(num_comp+1);
     for(int i=0;i<n;i++){
         cout<<i<<": "<<vis[i]<<endl;
         components[vis[i]].push_back(i);
     }
+    
     return 0;
 }
 
