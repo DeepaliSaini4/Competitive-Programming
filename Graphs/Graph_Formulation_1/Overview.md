@@ -56,7 +56,7 @@
 - Abstract graph
 - identify problem
 - Select appropriate algorithm (based on the graph’s properties and requirements).
-- Pay attention components (nodes, edges, weights) 
+- Pay attention to components (nodes, edges, weights) 
 
 ---
 
