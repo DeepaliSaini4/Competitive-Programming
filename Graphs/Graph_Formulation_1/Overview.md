@@ -45,7 +45,7 @@
 - Add all sources into a queue (or priority queue for Dijkstra’s).
 
 #### All Pair Shortest Path (APSP)
-** Use sssp from every source O(V.(sssp))
+  - Use sssp from every source O(V.(sssp)).
 5. **Floyd-Warshall Algorithm** O(V^3):
    - Uses dp 
 
