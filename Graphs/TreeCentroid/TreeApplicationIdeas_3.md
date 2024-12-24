@@ -38,10 +38,10 @@ Do a DFS on each node and add (\( O(n^2) \)).
 3. How many times the given edge will be part of the distance between any two pairs of nodes?
 4. **Idea:** One-to-one correspondence between the edge and the vertex next to it.
 5. **Formula:**
-   \[
-   \sum_{v=1}^{n} (\text{size of vertex}) \times (n - \text{size of vertex})
-   \]
-   (For the root vertex, size is equal to \( n \))
+$$
+\sum_{v=1}^{n} (\text{size of vertex}) \times (n - \text{size of vertex})
+$$
+(For the root vertex, size is equal to \( n \)).\
 6. **Extra:** For a leaf node, its edge contributes a distance of \( \text{total nodes} - 1 \) because it connects to all other nodes in the tree through that single edge.
 
 #### Q2: For a given tree, calculate $$ \max \left(|\text{val}[x] - \text{val}[y]|) \right)$$, where \( y \) is the ancestor of \( x \).
