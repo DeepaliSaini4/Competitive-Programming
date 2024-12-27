@@ -1,6 +1,7 @@
 //Q - count the number of nodes which are the part of a cycle
 #include<bits/stdc++.h>
 using namespace std;
+
 int n,m;
 vector<vector<int>>g;
 vector<int> col;
@@ -9,6 +10,7 @@ bool is_cycle = 0;
 vector<int> any_cycle;
 vector <int> cntcycle;
 vector<int> prefixorder;
+
 void dfs(int node,int par){
     parent[node] = par;
     col[node]=2;
@@ -44,10 +46,12 @@ void dfs(int node,int par){
 signed main(){
     
     cin>>n>>m;
+
     g.resize(n+1);
     col.assign(n+1,1);
     parent.assign(n+1,0);
     cntcycle.assign(n+1,0);
+    
     map<pair<int,int>,int> edgecnt;
     for(int i=0;i<m;i++){
         int a,b;
