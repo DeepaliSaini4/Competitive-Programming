@@ -50,7 +50,7 @@ signed main(){
     if(topo.size()!=n){
         cout<<"Cycle Detected!"<<endl;
     } 
-    
+
     else{
     for(auto v:topo){
         cout<<v<<" ";
