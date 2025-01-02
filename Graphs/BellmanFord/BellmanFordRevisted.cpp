@@ -36,7 +36,6 @@ using namespace std;
 #define F first
 
 int n,m;
-vector<vector<pair<int,int>>>g;
 vector<pair<int,pair<int,int>>>edge;
 vector<int>dis;
 bool is_cycle = false;
@@ -71,12 +70,9 @@ signed main(){
     
      cin >> n >> m;
 
-     g.resize(n+1);
      for(int i=0;i<m;i++){
         int a,b,c;
         cin>>a>>b>>c;
-        g[a].push_back({b,c});
-        g[b].push_back({a,c});
         edge.push_back({a,{b,-c}});
 
     }
