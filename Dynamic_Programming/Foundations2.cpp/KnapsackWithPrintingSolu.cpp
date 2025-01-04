@@ -74,3 +74,5 @@ int main()
 { solver();
     return 0;
 }
+
+//TC = O(N*W^2)
