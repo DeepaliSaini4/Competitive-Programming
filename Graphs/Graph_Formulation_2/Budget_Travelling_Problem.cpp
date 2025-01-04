@@ -80,20 +80,85 @@ Explanation 2:
 
 Fill 1 liter of petrol in city 1 of cost 10, travel to city 6. Fill 5 liters of petrol at city 6 of cost 5 x 1 = 5. Travel to city 5. Total cost = 10 + 5 = 15. The path took 1 → 6 → 5.
 */
+
 #include<bits/stdc++.h>
 using namespace std;
 
-# define int long long
-# define pii pair <int,int>
-# define F first
-# define S second
+#define int long long
+#define pii pair<int,int>
+#define F first
+#define S second
 
-using state = pair <int,int>; // {node,Current amount of petrol}
+using state = pair<int,int>; //{node,current amount of petrol}
+
+int n,m;
+vector<vector<pii>> g;
+vector<int>pet;
+int A, B, C;
+vector<vector<int>> vis;
+vector<vector<int>> dis;
+
+void dijkstra(state st_node){
+    priority_queue<pair<int,state>> pq; //{-distance,state}
+    pq.push({0,st_node});
+    dis[st_node.F][st_node.S]=0;
+    while(!pq.empty()){
+        auto x= pq.top();
+        pq.pop();
+
+        if(vis[x.S.F][x.S.S]==1) continue;
+        vis[x.S.F][x.S.S] = 1;
+
+
+        //try and go to neighbour city (if petrol allows)
+        for(auto v:g[x.S.F]){
+            if(x.S.S>=v.S){
+                if(dis[v.F][x.S.S-v.S]>dis[x.S.F][x.S.S]+0){
+                    dis[v.F][x.S.S-v.S]=dis[x.S.F][x.S.S]+0;
+                    pq.push({-dis[v.F][x.S.S-v.S],{v.F,x.S.S-v.S}});
+                }
+            }
+        }
+
+        //refill the petrol if tank allows
+        if(x.S.S<C){
+            if(dis[x.S.F][x.S.S+1]>dis[x.S.F][x.S.S]+pet[x.S.F])
+            {
+                dis[x.S.F][x.S.S+1] = dis[x.S.F][x.S.S]+pet[x.S.F];
+                pq.push({-dis[x.S.F][x.S.S+1],{x.S.F,x.S.S+1}});
+            }
+        }
+    }
+}
+
+void solve(){
+    state st_node = {A,0};
+    dijkstra(st_node);
+
+    state en_node = {B,0};
+    cout<< dis[en_node.F][en_node.S]<<'\n';
+}
+
 signed main(){
     ios_base::sync_with_stdio(0);
-    cin.tie(0); cout.tie(0);
+    cin.tie(0);cout.tie(0);
 
+    cin>>n>>m;
+    g.resize(n+1); //1-based
+    for(int i=0;i<m;i++){
+        int u, v, d;
+        cin>>u>>v>>d;
+        g[u].push_back({v,d});
+        g[v].push_back({u,d});
+    }
+    pet.resize(n+1);
+    for(int i=1;i<=n;i++) cin>>pet[i];
+    cin >> A >> B >> C;
+    vis.assign(n+1,vector<int>(C+1,0));
+    dis.assign(n+1,vector<int>(C+1,1e18));
 
+    solve();
+    return 0;
 }
 
 
