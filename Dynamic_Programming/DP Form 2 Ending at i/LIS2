@@ -1,0 +1,30 @@
+/*
+LIS2 - Another Longest Increasing Subsequence Problem
+no tags 
+Given a sequence of N pairs of integers, find the length of the longest increasing subsequence of it.
+An increasing sequence A1..An is a sequence such that for every i < j, Ai < Aj.
+A subsequence of a sequence is a sequence that appears in the same relative order, but not necessarily contiguous.
+A pair of integers (x1, y1) is less than (x2, y2) iff x1 < x2 and y1 < y2.
+
+Input
+The first line of input contains an integer N (2 ≤ N ≤ 100000).
+The following N lines consist of N pairs of integers (xi, yi) (-109 ≤ xi, yi ≤ 109).
+
+Output
+The output contains an integer: the length of the longest increasing subsequence of the given sequence.
+
+Example
+Input:
+8
+1 3
+3 2
+1 1
+4 5
+6 3
+9 9
+8 7
+7 6
+
+Output:
+3
+*/
