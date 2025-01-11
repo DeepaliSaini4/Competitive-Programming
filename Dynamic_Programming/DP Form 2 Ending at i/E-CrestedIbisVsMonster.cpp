@@ -89,4 +89,5 @@ signed main(){
     solver();
     return 0;
 }
+
 //not right spot the eerror in logic and return the right answer
