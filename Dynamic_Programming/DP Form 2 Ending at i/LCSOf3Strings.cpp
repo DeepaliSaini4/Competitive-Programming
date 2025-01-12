@@ -24,7 +24,6 @@ Sample Output 1
 2
 4
 0
-
 */
 #include<bits/stdc++.h>
 using namespace std;
