@@ -46,7 +46,7 @@ void solver(){
         }
     }
     //zero based  indexing
-   cout<<"The number of ways to reach the ending cell are: "<<rec(n-1,m-1);//returns the number of paths ending at n-1 and m-1.
+   cout<<"The number of ways to reach the ending cell are: "<<rec(n-1,m-1); //returns the number of paths ending at n-1 and m-1.
     
 }
 
