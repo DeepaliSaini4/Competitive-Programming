@@ -37,3 +37,56 @@ Sample Output 1
 7
 1
 */
+#include<bits/stdc++.h>
+using namespace std;
+
+#define int long long
+int n,m;
+vector<vector<int>>grid;
+vector<vector<int>>dp;
+
+int rec(int i,int j){//returns the min amount of health reqired to cross the given block on the way to the end
+    //pruning
+    if(i>=n || j>=m) return 1e9;
+    //base case
+    if(i==n-1 && j==m-1) return (grid[i][j]>=0)?1:-(grid[i][j])+1;
+    //cache check
+    if(dp[i][j]!=-1) return dp[i][j];
+    //compute
+    int health = 0;
+    //min amount of health required to be at a cell which has orb is 1.
+    health = min(rec(i+1,j),rec(i,j+1)) - grid[i][j];
+    //save and return
+    return dp[i][j] = max(1LL,health);
+
+}
+
+void solver(){
+    cin>>n>>m;
+
+    grid.resize(n,vector<int>(m));
+    dp.resize(n,vector<int>(m,-1));
+
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cin>>grid[i][j];
+        }
+    }
+    cout<<rec(0,0)<<'\n';
+
+    // Clearing the globally declared ds for subsequent test cases.
+    dp.clear();
+    grid.clear();
+
+}
+
+signed main(){
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);cout.tie(0);
+
+    int t;
+    cin>>t;
+    while(t--) solver();
+    return 0;
+    
+}
