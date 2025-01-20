@@ -93,4 +93,5 @@ signed main(){
     while(t--) solver();
     return 0;
 }
-// DEBUG--->dont set 2d dp using memset
+// DEBUG-Dont use memset under strong constraints
+//      -when declaring 1e9+7 using #define by default its type is double so instead use int mod = 1e9+7;
