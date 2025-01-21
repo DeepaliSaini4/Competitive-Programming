@@ -83,3 +83,7 @@ signed main(){
     return 0;
 }
 //Debug:Precompute the ans in 0(n) and then for each test case return the answer in O(1) complexity.
+/*
+instead of form 1 we use form 2 here so that the call always goes in the backward direction so that the precomputed ans we found mid way 
+is accumulated without computing it again
+*/
