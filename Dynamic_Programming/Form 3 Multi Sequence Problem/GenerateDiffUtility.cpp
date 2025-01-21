@@ -51,7 +51,7 @@ void generate(int l1,int l2){
         generate(l1,l2+1);
     }else{
         cout<<x[l1]<<" ";
-        generate(l1+1,l2+1);
+        generate(l1+1,l2+1);//O(ans) worst case - O(n+m)
         cout<<'\n';
     }
 }
