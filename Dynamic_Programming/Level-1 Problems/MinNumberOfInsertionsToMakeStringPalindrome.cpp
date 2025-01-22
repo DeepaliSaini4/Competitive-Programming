@@ -3,8 +3,7 @@ Q -> Description
 Given a string s, find the minimum number of characters that need to be inserted into the string to make it a palindrome.
 
 Input Format
-First line contains 
-T - the number of test cases.
+First line contains T - the number of test cases.
 First line of each test case contains the string s.
 
 Output Format
