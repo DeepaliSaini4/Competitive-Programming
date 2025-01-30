@@ -37,17 +37,15 @@ public:
         if(i==a && j==b){
             initial_cherry = grid[a][b];//avoiding double counting
         }
-        int cherry = INT_MIN;
+        int cherry = -3e6;
         for(int k1=0;k1<2;k1++){
             for(int k2=0;k2<2;k2++){
                 int ni = i + dx[k1];
                 int nj = j + dy[k1];
                 int na = a + dx[k2];
                 int nb = b + dy[k2];
-                if(check(ni,nj,grid) && check(na,nb,grid)){//only give call for the path if the path is valid
-                    int next = rec(ni,nj,na,grid);
-                    if(next!=INT_MIN)
-                    cherry = max(cherry ,next + initial_cherry);
+                if(check(ni,nj,grid) && check(na,nb,grid)){
+                    cherry = max(cherry ,rec(ni,nj,na,grid) + initial_cherry);
                 }
             }
         }
@@ -60,8 +58,6 @@ public:
         memset(dp,-1,sizeof(dp));
         if(grid[0][0]==-1 || grid[n-1][n-1]==-1) return 0;//edge case
         int ans = rec(0,0,0,grid);
-        if(ans==INT_MIN)
-            ans = 0;
-        return ans;
+        return (ans < 0 ? 0 : ans);
     }
 };
