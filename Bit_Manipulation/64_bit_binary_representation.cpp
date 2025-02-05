@@ -9,5 +9,7 @@ int main (){
     else cout<< "0";
   }
   cout<<'\n';
+  // second way
+  cout << bitset<64>(n).to_string() << '\n';
   return 0;
 }
