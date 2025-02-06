@@ -2,7 +2,6 @@
 Question 1 Given an array where every element occurs three times, except one element which occurs only once. Find the element that occurs once.
 
 Example:
-
 {23, 5, 23, 4, 23, 4, 5, 3, 5, 4} => 3
 {15, 12, 15, 9, 15, 9, 9} => 12
 */
