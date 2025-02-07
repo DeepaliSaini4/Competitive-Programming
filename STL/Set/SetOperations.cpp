@@ -6,12 +6,9 @@ difference (A-B) of the two sets in sorted order.
 Input Format
 The first line of the input contains one integer T - the number of test cases. Then T test cases follow.
 
-
 The first line of each test case contains two space-separated integers N, M - the length of the sets.
 
-
 The second line of each test case contains N space-separated integers.
-
 
 The third line of each test case contains M space-separated integers.
 
