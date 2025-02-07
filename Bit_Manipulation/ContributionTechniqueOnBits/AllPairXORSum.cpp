@@ -22,7 +22,7 @@ void solve(){
             cnt[(arr[i]>>j)&1]++; 
         }
         long long numPairs = cnt[0]*cnt[1];//xor will be the accumulation of all 0 and 1 pairs
-        ans += numPairs*(1LL<<j);
+        ans += numPairs*(1LL<<j);//Multiplying by positional value
     }
     cout<<ans<<'\n';
 }
