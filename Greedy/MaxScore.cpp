@@ -64,3 +64,29 @@ signed main(){
     while(t--) solver();
     return 0;
 }
+/*
+Now, why do we use max(done[i-1] - arr[i], in_progress[i-1])?
+
+👉 Because when you decide to start a new trade (subarray), you must "pay" the price of arr[i] from your previous best profit (done[i-1])!
+This is like saying:
+
+"If I start investing again at index i, my balance is the profit I had (done[i-1]), but I need to pay the cost of arr[i]."
+
+So, at each step:
+
+Either continue with the previous "best trade" (in_progress[i-1]).
+Or start a new trade at index i, which means we pay the cost of arr[i] and begin fresh from the previous best collected profit (done[i-1] - arr[i]).
+
+
+Why do we use max(done[i - 1], arr[i] + in_progress[i - 1] - k)?
+👉 Because when you decide to end a trade (subarray) at index i, you must collect the profit from arr[i], add the best possible start (in_progress[i-1]), and pay the tax k!
+
+This is like saying:
+
+"If I end my trade at index i, my balance is what I gain (arr[i]), plus whatever was the best possible trade start (in_progress[i - 1]), but I need to pay the tax k."
+
+So, at each step:
+
+Either continue with the previous best collected profit (done[i-1]) (not ending a trade here).
+Or end a trade at i, meaning we take arr[i], add the best trade start (in_progress[i - 1]), and pay k tax.
+*/
