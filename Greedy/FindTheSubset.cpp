@@ -66,3 +66,9 @@ signed main(){
 
     return 0;
 }
+/*
+✔️ Prefix sum modulo ensures that we get N+1 values but only N possible remainders.
+✔️ By Pigeonhole Principle, two prefix sums must be equal.
+✔️ The subarray between them forms a sum divisible by N.
+✔️ Thus, the answer is always YES! 
+*/
