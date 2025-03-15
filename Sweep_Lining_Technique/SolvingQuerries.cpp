@@ -73,3 +73,4 @@ signed main(){
     }
     return 0;
 }
+//TC = O((N+q)*(log(N+q))+N*log(N+q)+q*k)
