@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+
+void solver() {
+    int n;
+    cin >> n;
+    vector<pair<int, int>> events;
+
+    // Step 1 -> Create events
+    for (int i = 0; i < n; i++) {
+        int l, r;
+        cin >> l >> r;
+        events.push_back({l, +1});
+        events.push_back({r, -1});
+    }
+
+    // Step 2 -> Sort the events
+    sort(events.begin(), events.end());
+
+    // Property of sweep line -> how many intervals it is cutting
+    int cnt = 0; // Number of active segments of intervals
+    int union_length = 0;  // Renamed from "union"
+    int intersection = 0;
+
+    // Step 3 -> Start from the start and keep processing them as per requirement
+    for (int i = 0; i < events.size() - 1; i++) {
+        // Step 4 -> On hitting an event, trigger its activity
+        cnt += events[i].second;
+
+        // Step 5 -> Event remains constant till the next event occurs, so process that interval together
+        if (cnt > 0) {
+            union_length += events[i + 1].first - events[i].first;
+        }
+        if (cnt == n) {
+            intersection += events[i + 1].first - events[i].first;
+        }
+    }
+
+    cout << union_length << " " << intersection << "\n";
+}
+
+signed main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    solver();
+}
