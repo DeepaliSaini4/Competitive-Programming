@@ -12,9 +12,16 @@ using event = pair<pair<int,int>,pair<int,int>>;//each event has 4 values
 #define S second
 
 /*
+inclusivity and exclusivity of end points is decided by this mapping
+here both the start and end points are included 
     0 -> start
     1 -> Query
     2 -> end
+
+    here both the start and end points are exclusive
+    0 -> end
+    1 -> Query
+    2 -> start
 */
 signed main(){
     ios_base::sync_with_stdio(0);
