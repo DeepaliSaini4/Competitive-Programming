@@ -8,7 +8,7 @@ int n;
 int arr[1010];
 
 bool check(int mid){
-    return (arr[mid]<arr[n-1]);
+    return (arr[mid] <= arr[n-1]);
 }
 
 void solver(){
