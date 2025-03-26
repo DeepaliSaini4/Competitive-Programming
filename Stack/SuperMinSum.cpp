@@ -51,3 +51,6 @@ signed main(){
     }
     return 0;
 }
+/* Stratergy:
+A given element contributes the number of times it doesnot encounter a nse on the right and a pse on the left.
+*/
