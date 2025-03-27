@@ -27,3 +27,52 @@ Sample Output 1
   1 2 3 2 1   
 1 2 3 4 3 2 1
 */
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
+  // including all the test cases
+  int t;
+  cin >> t;
+
+  while (t--) {
+    int n, i, j;
+    cin >> n;
+
+    // iterating over every row
+    for (i = 1; i <= n; i++) {
+      // preceding blank spaces
+      int n_blanks = n - i;
+      for (j = 1; j <= n_blanks; j++) {
+        cout << "  ";
+      }
+
+      // printing the values in ascending order
+      int max_val = i;
+      for (j = 1; j <= max_val; j++) {
+        cout << j << " ";
+      }
+
+      // printing the values in descending order
+      for (j = max_val - 1; j >= 1; j--) {
+        cout << j << " ";
+      }
+
+      // succeeding blank spaces
+      for (j = 1; j <= n_blanks; j++) {
+        cout << "  ";
+      }
+
+      // moving printing operation to the next line
+      cout << "\n";
+    }
+
+    // spacing between different test cases
+    cout << "\n";
+  }
+
+  return 0;
+}
