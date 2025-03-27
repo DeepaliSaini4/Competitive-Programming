@@ -15,13 +15,12 @@ signed main(){
     int N, Q;
     cin>>N>>Q;
 
-    int arr[N+1];
-    for(int i=1;i<N+1;i++) cin>>arr[i];
 
-    int pre[N+1];
+    int pre[N+2];
     pre[0] = 0;
-    for(int i=1;i<=N;i++){
-        pre[i] = ((arr[i] + pre[i-1])+mod)%mod;
+    for(int i=1;i<N+1;i++){
+        cin>>pre[i];
+        pre[i] = (( pre[i-1]+pre[i])+mod)%mod;
     }
 
     while(Q--){
@@ -32,3 +31,4 @@ signed main(){
     }
     return 0;
 }
+
