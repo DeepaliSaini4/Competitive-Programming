@@ -12,15 +12,15 @@ void solver(){
     int n,target;
     cin>>n>>target;
     
-    int arr[n];
+    vector<int>arr(n);
     for(int i=0;i<n;i++) cin>>arr[i];
     
-    sort(arr,arr+n);
+    sort(arr.begin(),arr.end());
     int best = arr[0] + arr[1] + arr[2];
-    for(int i = 0;i<n;i++){
+    for(int i = 1;i<n-1;i++){
             int low = 0;
             int high = n-1;
-        while(true){
+        while(1){
             if(abs(arr[low]+arr[i]+arr[high]-target)<abs(best-target)){
                 best = arr[low] + arr[i] + arr[high];
             }
@@ -37,7 +37,8 @@ signed main(){
     cin.tie(0);cout.tie(0);
     int t;
     cin>>t;
-    while(t--);
+    while(t--)
     solver();
+    return 0;
     
 }
