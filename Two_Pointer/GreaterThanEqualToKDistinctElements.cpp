@@ -1,5 +1,5 @@
 /*
-number of subarray for which number of distict elements is greater then equal to k
+Q- number of subarray for which number of distict elements is greater then equal to k
 */
 #include<bits/stdc++.h>
 using namespace std;
