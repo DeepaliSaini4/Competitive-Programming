@@ -44,6 +44,7 @@ struct manacher{
         return p[pos]-1;// Adjust for the '#' characters.
 }
     }
+
 //Check If Substring is a Palindrome
     bool checkpalin(int l,int r){
         if((r-l+1)<=getlongest(l+r/2,l%2==r%2)){ return 1;
