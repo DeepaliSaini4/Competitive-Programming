@@ -32,19 +32,20 @@ void solver(){
 
     int l = 1, r = 1;
     for (int i = 1; i < n; i++) {
-       
+            //mirroring logic
             p[i] = min(r - i, p[l + r - i]);
-            
+            //expanding the box size
         while (i - p[i] >= 0 && i + p[i] < n && t[i - p[i]] == t[i + p[i]]) {
             p[i]++;
         }
+        //updating the box size based on expansion
         if (i + p[i] > r) {
             l = i - p[i];
             r = i + p[i];
         }
     }
 
-    // Find the longest palindrome
+    // finding the max length plaindrome centre and length
     int max_len = 0, center = 0;
     for (int i = 1; i < n; i++) {
         if (p[i] > max_len) {
