@@ -14,7 +14,8 @@ public:
         vector<int> inorder;
         TreeNode* curr = root;
         while(curr!=NULL){
-           //reached the extreme left end of the tree
+           //3 cased situation here!
+          //reached the extreme left end of the tree and start filling the inorder answer
            if(curr->left == NULL){
             inorder.push_back(curr->val);
             curr = curr->right;
@@ -22,11 +23,12 @@ public:
             TreeNode* prev = curr->left;
             while(prev->right&& prev->right!=curr){
                 prev = prev->right;
-            }
+             //forming of thread
             if(prev->right==NULL){
                 prev -> right = curr;
                 curr = curr->left;
             }else{
+            }//dettaching the thread 
                 prev->right = NULL;
                 inorder.push_back(curr->val);
                 curr=curr->right;
