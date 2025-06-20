@@ -15,6 +15,8 @@ class TreeNode{
 
 vector<int> BottomView(TreeNode*root){
     vector<int>ans;
+    // Check if the tree is empty
+    if(root == NULL) return ans;
     map<int,int>m; // horizontal coordinate -> node value
     queue<pair<TreeNode*,int>>q;
     int val = 0;
@@ -50,6 +52,5 @@ int main() {
 	for(auto it:ans){
 	    cout<<it<<" ";
 	}
-	 
 	 return 0;
 }
