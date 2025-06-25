@@ -33,7 +33,7 @@ int main() {
 	root->left = new TreeNode(5);
 	root->left->left = new TreeNode(3);
 	root->left->right = new TreeNode(6);
-    cout<<"Height/depth of the tree is: "<<HeightOfTree(root)<<'\n';
+    	cout<<"Height/depth of the tree is: "<<HeightOfTree(root)<<'\n';
 	
 
 }
