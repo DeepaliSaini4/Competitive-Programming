@@ -9,6 +9,8 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+// tip-> to maintain the property of bst we are required to maintian a variable called 'bound' that is different for the left and the right subtree that will help us identify in which subtree a given children will belong depending upon its value comparison with the bound mentioned for it.
 class Solution {
 public:
     TreeNode* helper(vector<int>&preorder,int &index, int bound){
