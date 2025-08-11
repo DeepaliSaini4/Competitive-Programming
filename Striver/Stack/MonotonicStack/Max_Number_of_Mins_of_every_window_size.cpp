@@ -11,7 +11,7 @@ public:
         
         //prev smaller element
         for(int i=0;i<n;i++){
-            while(!s.empty() && s.top()>=arr[i]) s.pop();
+            while(!s.empty() && arr[s.top()]>=arr[i]) s.pop();
             left[i] = s.empty() ? -1: s.top();
             s.push(i);
         }
@@ -19,7 +19,7 @@ public:
         while (!st.empty()) st.pop();
         //next smaller element
         for(int i=n-1;i>=0;i--){
-            while(!s.empty() && s.top()>=arr[i])s.pop();
+            while(!s.empty() && arr[s.top()]>=arr[i])s.pop();
             right[i] = s.empty() ? n:s.top();
             s.push(i);
         }
