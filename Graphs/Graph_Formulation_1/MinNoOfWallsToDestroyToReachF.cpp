@@ -17,6 +17,8 @@ const int INF = 100;
 int n, m, k;
 vector<vector<char>> arr;
 using state = pair<int , int >;
+
+//validation check
 bool is_valid(int x, int y){
     if(x>=0 && x<n && y>=0 && y<m){
         return 1;
@@ -24,11 +26,13 @@ bool is_valid(int x, int y){
     return 0;
 }
 
+//directional moves
 int dx[]={0,1,0,-1};
 int dy[]={1,0,-1,0};
 // int dx[] = {2,1,-1,-2,-2,-2,1,2};
 // int dy[] = {-1,-2,-2,-1,1,2,2,1};
 
+//all valid moves from current node
 vector<state> neighbors(state node){
     vector<state> neighs;
     for(int k=0;k<4;k++){
@@ -40,6 +44,7 @@ vector<state> neighbors(state node){
     }
     return neighs;
 }
+
 
 vector<vector<int>> dis;
 
