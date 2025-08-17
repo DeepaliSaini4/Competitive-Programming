@@ -65,3 +65,60 @@ int main() {
 }
 //O(n) time, O(m) space.
 //O(1) for lookup
+
+/*
+The MLE happened because ans = s.substr(...) was called inside the loop repeatedly, creating many large string copies.
+
+Solution: store only the best window indices while scanning, and build the substring once at the end.
+
+*/
+class Solution {
+public:
+    string minWindow(string s, string t) {
+        int head = -1, tail = 0;
+        int len = INT_MAX;
+        int n = s.length();
+        int bestLen = INT_MAX, bestL = -1;
+
+        // store freq of chars needed
+        map<char, int> m;
+        for (auto it : t)
+            m[it]++;
+
+        // how many chars still missing
+        int missing = t.size();
+
+        while (tail < n) {
+            // expand window until valid
+            while (head + 1 < n && missing != 0) {
+                head++;
+                if (m.find(s[head]) != m.end()) {
+                    m[s[head]]--;
+                    if (m[s[head]] >= 0)
+                        missing--;
+                }
+            }
+            // valid window → update ans
+            if (missing == 0) {
+                int cur = head - tail + 1;
+                if (cur < bestLen) {
+                    bestLen = cur;
+                    bestL = tail;
+                }
+            }
+            // shrink from left
+            if (tail > head) {
+                tail++;
+                head = tail + 1;
+            } else {
+                if (m.find(s[tail]) != m.end()) {
+                    m[s[tail]]++;
+                    if (m[s[tail]] > 0)
+                        missing++;
+                }
+                tail++;
+            }
+        }
+        return (bestL == -1) ? "" : s.substr(bestL, bestLen);
+    }
+};
