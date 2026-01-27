@@ -1,4 +1,5 @@
 //Single Source Shortest Path-->no weighted edges--> bfs
+//BFS gives the shortest path in an unweighted graph because it explores vertices in increasing order of distance from the source.
 #include<bits/stdc++.h>
 using namespace std;
 
