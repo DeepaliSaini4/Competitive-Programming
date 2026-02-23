@@ -1,7 +1,7 @@
 //Given a Binary Tree, convert the value of its nodes to follow the Children Sum Property. The Children Sum Property in a binary tree states that for every node,
 //the sum of its children's values (if they exist) should be equal to the node's value. If a child is missing, it is considered as having a value of 0.
 
-
+//constraint can only increase the values of nodes not decrease
 #include<bits/stdc++.h>
 using namespace std;
 
