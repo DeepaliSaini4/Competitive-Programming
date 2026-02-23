@@ -22,16 +22,16 @@ TreeNode* CreateTree(vector<int>&postorder,vector<int>&inorder,int inorderstart,
     int inroot = m[root->data];
     int numsleft = inroot-inorderstart;
     
-    //leftsubtree 
-    root->left = CreateTree(postorder,inorder,inorderstart,inroot-1,postorderstart, postorderstart + numsleft - 1,m);
-    
-    
     //rightsubtree
     root->right = CreateTree(postorder,inorder,inroot+1,inorderend,postorderstart+numsleft,postorderend-1,m);
     
-    return root;
+    //leftsubtree 
+    root->left = CreateTree(postorder,inorder,inorderstart,inroot-1,postorderstart, postorderstart + numsleft - 1,m);
     
+    return root;
 }
+    
+    
 //function to print the tree
 void printtree(TreeNode* root){
     if(root==NULL) return;
