@@ -8,6 +8,12 @@
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
+ Given the root of a Binary Search Tree and an integer k,
+determine if there exist two different nodes in the tree such that:
+
+node1->val + node2->val == k
+
+Return true if such a pair exists, otherwise return false.
  */
  #include<bits/stdc++.h>
 class Solution {
