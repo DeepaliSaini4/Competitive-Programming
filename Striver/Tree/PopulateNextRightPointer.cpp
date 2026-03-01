@@ -14,6 +14,10 @@ public:
     Node(int _val, Node* _left, Node* _right, Node* _next)
         : val(_val), left(_left), right(_right), next(_next) {}
 };
+You are given the root of a perfect binary tree (all levels fully filled).
+You must connect each node’s next pointer to its next right node in the same level.
+If there is no next right node, set next = NULL.
+Return the root after connecting all next pointers.
 */
 
 class Solution {
