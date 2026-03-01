@@ -9,6 +9,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+//Threads job is tos timulate the recursive call
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
